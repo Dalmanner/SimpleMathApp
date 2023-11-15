@@ -3,6 +3,7 @@ package com.example.simplemathapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -32,7 +33,12 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         setNewQuestion()
+
+        answerView.text.clear() //radera föregående svar vid resume
+
+        answerView.requestFocus()
     }
+
 
     fun handleAnswer() {
         val answeredCorrect = checkAnswer()
